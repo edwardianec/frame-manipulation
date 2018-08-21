@@ -1,0 +1,52 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/code/fpga/projects/temp/Max10LearningProj
+vframe_test
+Z0 !s110 1534834864
+!i10b 1
+!s100 F3W^R@ajF2HG;eT0I_9]01
+Ihl_6bK>^W705UH9P<H49h2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dD:/code/fpga/projects/frame-manipulation
+w1534834859
+8D:/code/fpga/projects/frame-manipulation/frame_test.v
+FD:/code/fpga/projects/frame-manipulation/frame_test.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1534834864.000000
+!s107 D:/code/fpga/projects/frame-manipulation/frame_test.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/code/fpga/projects/frame-manipulation/frame_test.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vframe_test_tb
+R0
+!i10b 1
+!s100 Zhmb7Sb9Db1;hozcS@<_=2
+Ih2NOhAI^KdLh?U0Y4?E=n2
+R1
+R2
+w1534775096
+8D:/code/fpga/projects/frame-manipulation/frame_test_tb.v
+FD:/code/fpga/projects/frame-manipulation/frame_test_tb.v
+L0 5
+R3
+r1
+!s85 0
+31
+R4
+!s107 frame_test.v|D:/code/fpga/projects/frame-manipulation/frame_test_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/code/fpga/projects/frame-manipulation/frame_test_tb.v|
+!i113 1
+R5
+R6

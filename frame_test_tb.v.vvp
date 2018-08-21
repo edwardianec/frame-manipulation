@@ -1,0 +1,292 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00000000007a8970 .scope module, "frame_test_tb" "frame_test_tb" 2 5;
+ .timescale -11 -12;
+P_00000000007ada00 .param/l "FILE_SIZE" 1 2 7, +C4<00000000000000000000000111101000>;
+P_00000000007ada38 .param/str "source_image" 1 2 8, "untitled.bmp";
+P_00000000007ada70 .param/str "target_image" 1 2 9, "untitled_updated.bmp";
+v000000000080d250_0 .var/i "file_bmp", 31 0;
+v000000000080d2f0_0 .var/i "file_bmp_updated", 31 0;
+v000000000080d390 .array "file_container", 487 0, 7 0;
+v000000000080d430_0 .var/i "file_image_height", 31 0;
+v000000000080d4d0_0 .var/i "file_image_position", 31 0;
+v000000000080d570_0 .var/i "file_image_size", 31 0;
+v000000000080d610_0 .var/i "file_image_width", 31 0;
+v000000000080d6b0_0 .var/i "findex", 31 0;
+v000000000080d750_0 .var/i "i", 31 0;
+v000000000080d7f0_0 .var "i_clk", 0 0;
+v000000000080d890_0 .var "i_color_b", 7 0;
+v000000000080d930_0 .var "i_color_g", 7 0;
+v000000000080d9d0_0 .var "i_color_r", 7 0;
+v000000000080da70_0 .var "i_end_frame_flag", 0 0;
+v000000000080db10_0 .var "i_rst", 0 0;
+v000000000080dbb0_0 .var "i_start_frame_flag", 0 0;
+v000000000080dc50_0 .net "o_color_b", 7 0, L_00000000007a0ee0;  1 drivers
+v000000000080dcf0_0 .net "o_color_g", 7 0, L_00000000007a0e70;  1 drivers
+v000000000080dd90_0 .net "o_color_r", 7 0, L_00000000007a0e00;  1 drivers
+S_00000000007a8590 .scope module, "frame_test_DUT" "frame_test" 2 29, 3 1 0, S_00000000007a8970;
+ .timescale -11 -12;
+    .port_info 0 /INPUT 1 "i_clk"
+    .port_info 1 /INPUT 1 "i_rst"
+    .port_info 2 /INPUT 8 "i_color_g"
+    .port_info 3 /INPUT 8 "i_color_r"
+    .port_info 4 /INPUT 8 "i_color_b"
+    .port_info 5 /INPUT 1 "i_start_frame_flag"
+    .port_info 6 /INPUT 1 "i_end_frame_flag"
+    .port_info 7 /OUTPUT 8 "o_color_r"
+    .port_info 8 /OUTPUT 8 "o_color_g"
+    .port_info 9 /OUTPUT 8 "o_color_b"
+L_00000000007a0e00 .functor BUFZ 8, v000000000080cfd0_0, C4<00000000>, C4<00000000>, C4<00000000>;
+L_00000000007a0e70 .functor BUFZ 8, v00000000007aeb40_0, C4<00000000>, C4<00000000>, C4<00000000>;
+L_00000000007a0ee0 .functor BUFZ 8, v00000000007aeaa0_0, C4<00000000>, C4<00000000>, C4<00000000>;
+v00000000007ae0b0_0 .net "i_clk", 0 0, v000000000080d7f0_0;  1 drivers
+v00000000007ae150_0 .net "i_color_b", 7 0, v000000000080d890_0;  1 drivers
+v00000000007ae4e0_0 .net "i_color_g", 7 0, v000000000080d930_0;  1 drivers
+v00000000007ae580_0 .net "i_color_r", 7 0, v000000000080d9d0_0;  1 drivers
+v00000000007ae620_0 .net "i_end_frame_flag", 0 0, v000000000080da70_0;  1 drivers
+v00000000007ae6c0_0 .net "i_rst", 0 0, v000000000080db10_0;  1 drivers
+v00000000007aea00_0 .net "i_start_frame_flag", 0 0, v000000000080dbb0_0;  1 drivers
+v00000000007aeaa0_0 .var "next_b", 7 0;
+v00000000007aeb40_0 .var "next_g", 7 0;
+v000000000080cfd0_0 .var "next_r", 7 0;
+v000000000080d070_0 .net "o_color_b", 7 0, L_00000000007a0ee0;  alias, 1 drivers
+v000000000080d110_0 .net "o_color_g", 7 0, L_00000000007a0e70;  alias, 1 drivers
+v000000000080d1b0_0 .net "o_color_r", 7 0, L_00000000007a0e00;  alias, 1 drivers
+E_00000000007a2fa0 .event posedge, v00000000007ae0b0_0;
+    .scope S_00000000007a8590;
+T_0 ;
+    %wait E_00000000007a2fa0;
+    %pushi/vec4 255, 0, 8;
+    %load/vec4 v00000000007ae580_0;
+    %sub;
+    %assign/vec4 v000000000080cfd0_0, 0;
+    %pushi/vec4 255, 0, 8;
+    %load/vec4 v00000000007ae4e0_0;
+    %sub;
+    %assign/vec4 v00000000007aeb40_0, 0;
+    %pushi/vec4 255, 0, 8;
+    %load/vec4 v00000000007ae150_0;
+    %sub;
+    %assign/vec4 v00000000007aeaa0_0, 0;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_00000000007a8970;
+T_1 ;
+    %delay 100, 0;
+    %load/vec4 v000000000080d7f0_0;
+    %inv;
+    %assign/vec4 v000000000080d7f0_0, 0;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_00000000007a8970;
+T_2 ;
+    %wait E_00000000007a2fa0;
+    %load/vec4 v000000000080d6b0_0;
+    %load/vec4 v000000000080d570_0;
+    %cmp/s;
+    %jmp/0xz  T_2.0, 5;
+    %ix/getv/s 4, v000000000080d6b0_0;
+    %load/vec4a v000000000080d390, 4;
+    %assign/vec4 v000000000080d890_0, 0;
+    %load/vec4 v000000000080d6b0_0;
+    %pad/s 33;
+    %addi 1, 0, 33;
+    %ix/vec4/s 4;
+    %load/vec4a v000000000080d390, 4;
+    %assign/vec4 v000000000080d930_0, 0;
+    %load/vec4 v000000000080d6b0_0;
+    %pad/s 33;
+    %addi 2, 0, 33;
+    %ix/vec4/s 4;
+    %load/vec4a v000000000080d390, 4;
+    %assign/vec4 v000000000080d9d0_0, 0;
+    %load/vec4 v000000000080d9d0_0;
+    %load/vec4 v000000000080d930_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000000000080d890_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000000000080dd90_0;
+    %load/vec4 v000000000080dcf0_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000000000080dc50_0;
+    %concat/vec4; draw_concat_vec4
+    %vpi_call 2 48 "$display", "\011 Time %d  \011 findex %d \011 input RGB \011 %h \011 output RGB \011%h", $time, v000000000080d6b0_0, S<1,vec4,u24>, S<0,vec4,u24> {2 0 0};
+    %load/vec4 v000000000080d6b0_0;
+    %cmpi/ne 57, 0, 32;
+    %jmp/0xz  T_2.2, 4;
+    %vpi_call 2 51 "$fwriteb", v000000000080d2f0_0, "%c", v000000000080dc50_0 {0 0 0};
+    %vpi_call 2 52 "$fwriteb", v000000000080d2f0_0, "%c", v000000000080dcf0_0 {0 0 0};
+    %vpi_call 2 53 "$fwriteb", v000000000080d2f0_0, "%c", v000000000080dd90_0 {0 0 0};
+T_2.2 ;
+    %load/vec4 v000000000080d6b0_0;
+    %addi 3, 0, 32;
+    %assign/vec4 v000000000080d6b0_0, 0;
+    %jmp T_2.1;
+T_2.0 ;
+    %vpi_call 2 58 "$fwriteb", v000000000080d2f0_0, "%c", v000000000080dc50_0 {0 0 0};
+    %vpi_call 2 59 "$fwriteb", v000000000080d2f0_0, "%c", v000000000080dcf0_0 {0 0 0};
+    %vpi_call 2 60 "$fwriteb", v000000000080d2f0_0, "%c", v000000000080dd90_0 {0 0 0};
+    %vpi_call 2 63 "$fwriteb", v000000000080d2f0_0, "%c", 8'b00000000 {0 0 0};
+    %vpi_call 2 64 "$fwriteb", v000000000080d2f0_0, "%c", 8'b00000000 {0 0 0};
+    %vpi_call 2 66 "$fclose", v000000000080d2f0_0 {0 0 0};
+    %vpi_call 2 67 "$display", "FILE %c WRITTEN", P_00000000007ada70 {0 0 0};
+    %vpi_call 2 68 "$finish" {0 0 0};
+T_2.1 ;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_00000000007a8970;
+T_3 ;
+    %vpi_call 2 75 "$dumpfile", "frame_test_tb.vcd" {0 0 0};
+    %vpi_call 2 76 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000000007a8970 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000080d7f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000080db10_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000080dbb0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000080da70_0, 0, 1;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000000000080d6b0_0, 0, 32;
+    %vpi_func 2 84 "$fopen" 32, P_00000000007ada38, "rb" {0 0 0};
+    %store/vec4 v000000000080d250_0, 0, 32;
+    %vpi_func 2 85 "$fopen" 32, P_00000000007ada70, "wb" {0 0 0};
+    %store/vec4 v000000000080d2f0_0, 0, 32;
+    %load/vec4 v000000000080d250_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_3.0, 8;
+    %vpi_call 2 88 "$display", "Open file %c error!", P_00000000007ada38 {0 0 0};
+    %vpi_call 2 89 "$finish" {0 0 0};
+    %jmp T_3.1;
+T_3.0 ;
+    %load/vec4 v000000000080d2f0_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_3.2, 8;
+    %vpi_call 2 92 "$display", "Open file %c error!", P_00000000007ada70 {0 0 0};
+    %vpi_call 2 93 "$finish" {0 0 0};
+    %jmp T_3.3;
+T_3.2 ;
+    %vpi_func 2 96 "$fread" 32, v000000000080d390, v000000000080d250_0 {0 0 0};
+    %store/vec4 v000000000080d750_0, 0, 32;
+    %vpi_call 2 97 "$fclose", v000000000080d250_0 {0 0 0};
+    %vpi_call 2 98 "$display", "--------------------- HEADER DATA ------------------------" {0 0 0};
+    %ix/load 4, 5, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %ix/load 4, 4, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %concat/vec4; draw_concat_vec4
+    %ix/load 4, 3, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %concat/vec4; draw_concat_vec4
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %concat/vec4; draw_concat_vec4
+    %store/vec4 v000000000080d570_0, 0, 32;
+    %vpi_call 2 101 "$display", "\011image size \011 %d bytes", v000000000080d570_0 {0 0 0};
+    %ix/load 4, 13, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %ix/load 4, 12, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %concat/vec4; draw_concat_vec4
+    %ix/load 4, 11, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %concat/vec4; draw_concat_vec4
+    %ix/load 4, 10, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %concat/vec4; draw_concat_vec4
+    %store/vec4 v000000000080d4d0_0, 0, 32;
+    %vpi_call 2 104 "$display", "\011first pixel position \011 %hh", v000000000080d4d0_0 {0 0 0};
+    %ix/load 4, 21, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %ix/load 4, 20, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %concat/vec4; draw_concat_vec4
+    %ix/load 4, 19, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %concat/vec4; draw_concat_vec4
+    %ix/load 4, 18, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %concat/vec4; draw_concat_vec4
+    %store/vec4 v000000000080d610_0, 0, 32;
+    %vpi_call 2 107 "$display", "\011image width \011 %d px", v000000000080d610_0 {0 0 0};
+    %ix/load 4, 25, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %ix/load 4, 24, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %concat/vec4; draw_concat_vec4
+    %ix/load 4, 23, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %concat/vec4; draw_concat_vec4
+    %ix/load 4, 22, 0;
+    %flag_set/imm 4, 0;
+    %load/vec4a v000000000080d390, 4;
+    %concat/vec4; draw_concat_vec4
+    %store/vec4 v000000000080d430_0, 0, 32;
+    %vpi_call 2 110 "$display", "\011image height \011 %d px", v000000000080d430_0 {0 0 0};
+    %vpi_call 2 111 "$display", "----------------------------------------------------------" {0 0 0};
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000000000080d6b0_0, 0, 32;
+T_3.4 ;
+    %load/vec4 v000000000080d6b0_0;
+    %load/vec4 v000000000080d4d0_0;
+    %cmp/s;
+    %jmp/0xz T_3.5, 5;
+    %vpi_call 2 116 "$fwriteb", v000000000080d2f0_0, "%c", &A<v000000000080d390, v000000000080d6b0_0 > {0 0 0};
+    %load/vec4 v000000000080d6b0_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000000000080d6b0_0, 0, 32;
+    %jmp T_3.4;
+T_3.5 ;
+    %load/vec4 v000000000080d4d0_0;
+    %store/vec4 v000000000080d6b0_0, 0, 32;
+    %ix/getv/s 4, v000000000080d6b0_0;
+    %load/vec4a v000000000080d390, 4;
+    %store/vec4 v000000000080d890_0, 0, 8;
+    %load/vec4 v000000000080d6b0_0;
+    %pad/s 33;
+    %addi 1, 0, 33;
+    %ix/vec4/s 4;
+    %load/vec4a v000000000080d390, 4;
+    %store/vec4 v000000000080d930_0, 0, 8;
+    %load/vec4 v000000000080d6b0_0;
+    %pad/s 33;
+    %addi 2, 0, 33;
+    %ix/vec4/s 4;
+    %load/vec4a v000000000080d390, 4;
+    %store/vec4 v000000000080d9d0_0, 0, 8;
+    %load/vec4 v000000000080d6b0_0;
+    %addi 3, 0, 32;
+    %store/vec4 v000000000080d6b0_0, 0, 32;
+T_3.3 ;
+T_3.1 ;
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "frame_test_tb.v";
+    "./frame_test.v";
