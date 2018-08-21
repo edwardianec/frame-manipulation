@@ -22,7 +22,7 @@ reg [7:0] gs,inverted;
 reg [8:0] next_r, next_g, next_b;
 
 always @(posedge i_clk) begin
-    gs <= (i_color_r + i_color_g + i_color_b)/3;
+    // gs <= (i_color_r + i_color_g + i_color_b)/3;
     //invers colors 8'hff - i_color_r
     next_r <= i_color_r*P_WB_R;
     next_g <= i_color_g*P_WB_G;
